@@ -2,29 +2,59 @@
 
 A full-stack MERN application to manage income and expenses with interactive charts, reports, and a mobile-friendly interface.
 
-🔗 Live Demo: 
-🎥 Demo Video: 
+🔗 Live Demo:
+
+
+🎥 Demo Video:(https://youtu.be/2k8gfhCl4M4?si=bcGcUoNM2ZgdmXvU)
 
 🚀 Features
 
 🔐 User Authentication – Secure login & sign-up using JWT authentication
+
+
 📊 Dashboard Overview – Quick summary of Total Balance, Income, and Expenses
+
+
 💰 Income Management – Add, view, delete, and export income sources
+
+
 💸 Expense Management – Add, view, delete, and export expenses with category tracking
+
+
 📈 Interactive Charts – Visual insights with Bar, Pie, and Line charts
+
+
 🕒 Recent Transactions – Displays the latest income & expenses for quick access
+
+
 📑 Reports – Export all data to Excel format for financial reporting
+
+
 📱 Mobile Responsive UI – Works seamlessly on desktop, tablet, and mobile
+
+
 🧭 Intuitive Navigation – Sidebar with easy access to all sections
+
+
 🗑️ Quick Delete – Hover over cards to reveal delete button
+
+
 🚪 Logout Functionality – Securely end user sessions
 
 🛠️ Tech Stack
 
 Frontend: React.js, Tailwind CSS
+
+
 Backend: Node.js, Express.js
+
+
 Database: MongoDB Atlas
+
+
 Authentication: JWT (JSON Web Token)
+
+
 Charts: Recharts
 
 🏗️ Project Architecture
@@ -68,7 +98,11 @@ Setup Environment Variables
 Create a .env file in the backend folder:
 
 MONGO_URI=your_mongodb_connection_string
+
+
 JWT_SECRET=your_jwt_secret
+
+
 PORT=8000
 
 Run the Project
