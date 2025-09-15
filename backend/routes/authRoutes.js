@@ -17,6 +17,9 @@ router.post("/register", registerUser);
 router.post("/login", loginUser);
 router.get("/getUser", protect, getUserInfo);
 
+router.post("/forgot-password", forgotPassword); // send reset link
+router.post("/reset-password/:token", resetPassword); // reset password using token
+
 router.post("/upload-image", upload.single("image"), (req, res) => {
   if (!req.file) {
     return res.status(400).json({ message: "No file uploaded" });

@@ -1,5 +1,7 @@
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
+import sendEmail from "../utils/sendEmail.js"; 
+import crypto from "crypto";
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "2h" });
 };
@@ -77,6 +79,10 @@ export const getUserInfo = async (req, res) => {
 export const forgotPassword = async (req, res) => {
   const { email } = req.body;
 
+  if (!email) {
+    return res.status(400).json({ message: "Email is required" });
+  }
+
   try {
     const user = await User.findOne({ email });
     if (!user) return res.status(404).json({ message: "User not found" });
@@ -86,21 +92,28 @@ export const forgotPassword = async (req, res) => {
 
     const resetUrl = `${process.env.CLIENT_URL}/reset-password/${resetToken}`;
 
-    const message = `You requested a password reset.\n\nPlease go to this link: \n${resetUrl}`;
+    const message = `
+      <p>Hello ${user.fullName},</p>
+      <p>You requested a password reset.</p>
+      <p>Click this link to reset your password:</p>
+      <a href="${resetUrl}">${resetUrl}</a>
+      <p>This link will expire in 15 minutes.</p>
+    `;
 
-    await sendEmail({
-      email: user.email,
-      subject: "Password Reset Request",
-      message,
-    });
+   console.log("Reset Token:", resetToken);
+console.log("Reset URL:", resetUrl);
+
+    await sendEmail(user.email, "Password Reset Request", message);
+    console.log("Sending reset email to:", user.email);
+
 
     res.status(200).json({ success: true, message: "Reset email sent" });
   } catch (err) {
-    res
-      .status(500)
-      .json({ message: "Error sending reset email", error: err.message });
+    console.error("Forgot password error:", err);
+    res.status(500).json({ message: "Error sending reset email", error: err.message });
   }
 };
+
 
 export const resetPassword = async (req, res) => {
   const resetPasswordToken = crypto
