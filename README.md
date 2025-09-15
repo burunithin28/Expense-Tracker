@@ -2,7 +2,7 @@
 
 A full-stack MERN application to manage income and expenses with interactive charts, reports, and a mobile-friendly interface.
 
-🔗 Live Demo:
+🔗 Live Demo:(https://nithins-expense-tracker.netlify.app/)
 
 
 🎥 Demo Video:(https://youtu.be/2k8gfhCl4M4?si=bcGcUoNM2ZgdmXvU)
@@ -116,9 +116,9 @@ npm start
 
 📦 Deployment
 
-Frontend deployed on: 
+Frontend deployed on: netlify
 
-Backend deployed on: [
+Backend deployed on: render
 
 Database: MongoDB Atlas
 
