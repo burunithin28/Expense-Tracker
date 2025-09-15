@@ -1,0 +1,5 @@
+1.signup success popup-done
+2.expenses category-
+3.signup page neeed to add image-done
+4.last 30 days expenses bar chart 
+

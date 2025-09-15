@@ -79,31 +79,31 @@ const Signup = () => {
         <form onSubmit={handleSignup}>
           <ProfilePhotoSelector image={profilePic} setImage={setProfilePic} />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Input
-              value={fullName}
-              onChange={({ target }) => setFullName(target.value)}
-              label="Full Name"
-              placeholder="Boby"
-              type="text"
-            />
-            <Input
-              value={email}
-              onChange={({ target }) => setEmail(target.value)}
-              label="email"
-              placeholder="example@gmail.com"
-              type="text"
-            />
-            <div className="col-span-2">
-              <Input
-                value={password}
-                onChange={({ target }) => setPassword(target.value)}
-                label="Password"
-                placeholder="Min 8 characters"
-                type="password"
-              />
-            </div>
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  gap-4">
+    <Input
+        value={fullName}
+        onChange={({ target }) => setFullName(target.value)}
+        label="Full Name"
+        placeholder="Boby"
+        type="text"
+    />
+    <Input
+        value={email}
+        onChange={({ target }) => setEmail(target.value)}
+        label="email"
+        placeholder="example@gmail.com"
+        type="text"
+    />
+    <div className="md:col-span-2 lg:col-span-2">
+        <Input
+            value={password}
+            onChange={({ target }) => setPassword(target.value)}
+            label="Password"
+            placeholder="Min 8 characters"
+            type="password"
+        />
+    </div>
+</div>
           {error && <p className="text-red-500 text-xs pb-2.5">{error}</p>}
           <button type="submit" className="btn-primary">
             SIGN UP
